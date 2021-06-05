@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col">
+    <p class="fs-6 py-2">First, we need a few parameters to start, Tradfri IP and Security Code. <br>The Security Code can be found in a label at the bottom of the tradfri.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Tradfri IP</mat-label>
+      <input matInput [(ngModel)]="tradfriIp" #tradfriIpId="ngModel" name="tradfriIpId" [disabled]="disabledIpInput">
+    </mat-form-field>
+  </div>
+</div>
+<div class="row mb-3" *ngIf="!disabledAutodiscoverIpButton">
+  <div class="col">
+    <button mat-menu-item class="text-center rounded w-100 bg-light text-dark fs-6 fw-bold align-middle" (click)="discoverTradfriIp()" [disabled]="disabledAutodiscoverIpButton">Auto-discover Tradfri IP</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Security Code</mat-label>
+      <input matInput [(ngModel)]="tradfriSecurityCode" #tradfriSecurityCodeId="ngModel" name="tradfriSecurityCodeId">
+    </mat-form-field>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <button mat-menu-item class="mb-4 text-center rounded w-100 bg-light text-dark fs-6 fw-bold align-middle" (click)="openHelper()">You cannot find it?</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <button mat-menu-item class="text-center rounded w-100 bg-light text-dark fs-6 fw-bold align-middle" [disabled]="!checkInputs()" (click)="sendSettings()">Save and continue</button>
+  </div>
+</div>
+<button mat-button [matMenuTriggerFor]="menu" class="d-none">Menu</button>
+<mat-menu #menu="matMenu" class="d-none">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>

@@ -1,0 +1,11 @@
+.moveCursor {
+  cursor: auto;
+}
+
+.moveCursor:hover {
+  cursor: move;
+}
+
+button {
+  box-shadow: none !important;
+}

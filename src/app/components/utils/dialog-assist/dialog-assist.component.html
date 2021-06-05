@@ -1,0 +1,14 @@
+<div class="row moveCursor" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <div class="col">
+    <div class="display-6 fs-5 fw-bold align-middle"><span>{{titulo}}</span></div>
+  </div>
+  <div class="col-1 text-end" *ngIf="this.data.closeButton">
+    <button type="button" class="btn-close bg-white botonCerrar" data-bs-dismiss="modal" aria-label="Close" [mat-dialog-close]="true"></button>
+  </div>
+</div>
+
+<hr class="my-3">
+
+<ng-template #dynamicComponent></ng-template>
+
+<hr class="my-3">

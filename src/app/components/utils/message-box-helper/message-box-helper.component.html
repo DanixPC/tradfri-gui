@@ -1,0 +1,23 @@
+<div class="row g-0" *ngIf="description">
+  <div class="col">
+    <p>{{description}}</p>
+  </div>
+</div>
+<div class="row g-0 justify-content-center text-center align-middle" *ngIf="imgUrl.length > 0">
+  <div class="col">
+    <img [src]="imgUrl" alt="" class="img-fluid" width="50%">
+  </div>
+</div>
+<div class="row g-0 mt-4" *ngIf="okButton">
+  <div class="col">
+    <button mat-raised-button class="bg-dark text-white w-100" (click)="closeMessageBox()">Ok</button>
+  </div>
+</div>
+<div class="row g-0" *ngIf="yesNoButton">
+  <div class="col pe-4" >
+    <button mat-raised-button color="accent" class="m-1 bg-dark w-100 text-white" (click)="closeWithBooleanResponse(true)">Yes</button>
+  </div>
+  <div class="col">
+    <button mat-raised-button color="accent" class="m-1 bg-danger w-100 text-white" (click)="closeWithBooleanResponse(false)">No</button>
+  </div>
+</div>
