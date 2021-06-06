@@ -32,7 +32,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatTreeModule} from '@angular/material/tree';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,7 +45,8 @@ import { RouterModule } from '@angular/router';
 import { rutas } from './constants/routes';
 import { LoaderComponent } from './components/utils/loader/loader.component';
 import { MessageBoxHelperComponent } from './components/utils/message-box-helper/message-box-helper.component';
-import { DashboardComponent } from './componentes/pages/dashboard/dashboard.component';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+import { DeviceComponent } from './components/utils/device/device.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { DashboardComponent } from './componentes/pages/dashboard/dashboard.comp
     WelcomePageComponent,
     LoaderComponent,
     MessageBoxHelperComponent,
-    DashboardComponent
+    DashboardComponent,
+    DeviceComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +93,7 @@ import { DashboardComponent } from './componentes/pages/dashboard/dashboard.comp
     MatAutocompleteModule,
     MatTreeModule,
     HttpClientModule,
+    MatSliderModule,
     RouterModule.forRoot(rutas)
   ],
   providers: [

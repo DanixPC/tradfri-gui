@@ -1,3 +1,4 @@
+import { Device } from './../../../models/device';
 import { ResponseModel } from './../../../models/response-message';
 import { endpoints } from './../../../constants/endpoints';
 import { Injectable } from '@angular/core';
@@ -29,5 +30,17 @@ export class TradfriService {
         return new ResponseModel("Tradfri IP not found, please enter manually");
       }
     );
+  }
+
+  public getAllDevices(): Observable<Device[]> {
+    return this.http.get(endpoints.urlRest + endpoints.tradfri.getDevices).pipe(
+      map((response: any) => response as any),
+      catchError(
+        errorObjeto => {
+          console.log(errorObjeto);
+          return throwError(errorObjeto);
+        }
+      )
+    )
   }
 }
