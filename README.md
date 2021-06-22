@@ -1,6 +1,6 @@
 # TradfriGui
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+Web application to manage current paired IKEA devices to Tradfri.
 
 ## Development server
 
