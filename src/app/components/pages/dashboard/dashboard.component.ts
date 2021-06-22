@@ -10,6 +10,8 @@ import { Device } from 'src/app/models/device';
 export class DashboardComponent implements OnInit {
 
   deviceList: Device[] = [];
+  blindList: Device[] = [];
+  lightList: Device[] = [];
 
   constructor(
     private tradfriService: TradfriService
@@ -28,10 +30,22 @@ export class DashboardComponent implements OnInit {
       respuesta => {
         if(respuesta) {
           this.deviceList = respuesta;
-          console.log(this.deviceList)
+          this.filterDevices();
+          console.log(this.deviceList);
         }
       }
     )
+  }
+
+  filterDevices(): void {
+    for(let device of this.deviceList) {
+      if(device.blind) {
+        this.blindList.push(device);
+      }
+      if(device.light) {
+        this.lightList.push(device);
+      }
+    }
   }
 
 }

@@ -1,7 +1,16 @@
 <div class="container">
-  <div class="row g-0 my-3">
-    <div class="col-lg-4 col-md-12 col-sm-12 p-3" *ngFor="let device of deviceList">
-      <app-device [device]="device"></app-device>
+  <section name="blinds" *ngIf="blindList.length > 0">
+    <div class="row g-0 my-3">
+      <div class="col-lg-4 col-md-12 col-sm-12 p-3" *ngFor="let device of blindList">
+        <app-device *ngIf="device.blind" [device]="device"></app-device>
+      </div>
     </div>
-  </div>
+  </section>
+  <section name="blinds" *ngIf="lightList.length > 0">
+    <div class="row g-0 my-3">
+      <div class="col-lg-4 col-md-12 col-sm-12 p-3" *ngFor="let device of lightList">
+        <app-device *ngIf="device.light" [device]="device"></app-device>
+      </div>
+    </div>
+  </section>
 </div>

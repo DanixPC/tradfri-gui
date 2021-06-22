@@ -4,25 +4,43 @@
     <mat-card-subtitle *ngIf="device"><a>{{device.name}}</a></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content class="p-4 mb-0 pb-0 pt-2">
-    <div class="text-center" *ngIf="device.blind">
-      <mat-slider
-        class=""
-        [invert]="true"
-        [max]="100"
-        [min]="0"
-        [step]="1"
-        [thumbLabel]="true"
-        [(ngModel)]="progressBarValue"
-        [vertical]="true"
-        aria-labelledby="example-name-label" (change)="setBlindPosition($event)">
-    </mat-slider>
+    <div class="text-center" *ngIf="device.blind || device.light">
+      <div class="row" *ngIf="this.device.light">
+        <div class="col mb-4">
+          <mat-slide-toggle [(ngModel)]="onOffCheck" (change)="updateOnOffSwitch()">
+            {{onOffCheckText}}
+          </mat-slide-toggle>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-slider
+          class=""
+          [invert]="true"
+          [max]="max"
+          [min]="min"
+          [step]="1"
+          [thumbLabel]="true"
+          [(ngModel)]="progressBarValue"
+          [vertical]="true"
+          aria-labelledby="example-name-label" (change)="setSlideValue($event)" [(ngModel)]="sliderValue">
+          </mat-slider>
+        </div>
+      </div>
     </div>
-    <p class="fw-light fs-6">
-      Battery: {{batteryLevelValue}}%
-    </p>
-    <p>
-      <mat-progress-bar mode="determinate" value="{{batteryLevelValue}}"></mat-progress-bar>
-    </p>
+    <div *ngIf="this.device.blind">
+      <p class="fw-light fs-6">
+        Battery: {{batteryLevelValue}}%
+      </p>
+      <p>
+        <mat-progress-bar mode="determinate" value="{{batteryLevelValue}}"></mat-progress-bar>
+      </p>
+    </div>
+    <div class="row mt-3" *ngIf="this.device.light && this.hexAllowedColours">
+      <div class="col py-2" *ngFor="let color of hexAllowedColours">
+        <button mat-mini-fab [ngStyle]="{'background-color': '#' +   color}" (click)="setLightColor(color)"></button>
+      </div>
+    </div>
   </mat-card-content>
   <!--<mat-card-actions class="p-4 text-end">
     <button mat-mini-fab class="bg-dark"><mat-icon class="mini-icon" [inline]="true" [ngStyle]="{'color':'white'}">add_shopping_cart</mat-icon></button>
