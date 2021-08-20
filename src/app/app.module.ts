@@ -60,7 +60,7 @@ import { DeviceComponent } from './components/utils/device/device.component';
     DeviceComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -94,7 +94,9 @@ import { DeviceComponent } from './components/utils/device/device.component';
     MatTreeModule,
     HttpClientModule,
     MatSliderModule,
-    RouterModule.forRoot(rutas)
+    RouterModule.forRoot(rutas, {
+    initialNavigation: 'enabled'
+})
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
