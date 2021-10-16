@@ -94,9 +94,7 @@ import { DeviceComponent } from './components/utils/device/device.component';
     MatTreeModule,
     HttpClientModule,
     MatSliderModule,
-    RouterModule.forRoot(rutas, {
-    initialNavigation: 'enabled'
-})
+    RouterModule.forRoot(rutas)
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}},
